@@ -9,7 +9,7 @@ ESX.RegisterUsableItem('bread', function(source)
 
 	TriggerClientEvent('esx_status:add', source, 'hunger', 200000)
 	TriggerClientEvent('esx_basicneeds:onEat', source)
-	TriggerClientEvent('esx:showNotification', source, _U('used_bread'))
+	TriggerClientEvent('esx:showBasicneedsNotification', source, 'used_bread')
 end)
 
 ESX.RegisterUsableItem('water', function(source)
@@ -19,7 +19,7 @@ ESX.RegisterUsableItem('water', function(source)
 
 	TriggerClientEvent('esx_status:add', source, 'thirst', 200000)
 	TriggerClientEvent('esx_basicneeds:onDrink', source)
-	TriggerClientEvent('esx:showNotification', source, _U('used_water'))
+	TriggerClientEvent('esx:showBasicneedsNotification', source, 'used_water')
 end)
 
 TriggerEvent('es:addGroupCommand', 'heal', 'admin', function(source, args, user)
@@ -34,12 +34,12 @@ TriggerEvent('es:addGroupCommand', 'heal', 'admin', function(source, args, user)
 			if GetPlayerName(target) then
 				print('esx_basicneeds: ' .. GetPlayerName(source) .. ' is healing a player!')
 				TriggerClientEvent('esx_basicneeds:healPlayer', target)
-				TriggerClientEvent('chatMessage', target, "HEAL", {223, 66, 244}, "You have been healed!")
+				TriggerClientEvent('chatMessage', target, "HEAL", {223, 66, 244}, "你已经痊愈了！(You have been healed!)")
 			else
-				TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "Player not found!")
+				TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "找不到该玩家！(Player not found!)")
 			end
 		else
-			TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "Incorrect syntax! You must provide a valid player ID")
+			TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "语法错误！必须提供有效的玩家ID！(Incorrect syntax! You must provide a valid player ID)")
 		end
 	else
 		-- heal source
@@ -47,5 +47,5 @@ TriggerEvent('es:addGroupCommand', 'heal', 'admin', function(source, args, user)
 		TriggerClientEvent('esx_basicneeds:healPlayer', source)
 	end
 end, function(source, args, user)
-	TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "Insufficient Permissions.")
-end, {help = "Heal a player, or yourself - restores thirst, hunger and health."})
+	TriggerClientEvent('chatMessage', source, "HEAL", {255, 0, 0}, "权限不足(Insufficient Permissions)")
+end, {help = "治愈一个玩家或你自己，重置饥饿值、饥渴值、生命值！(Heal a player, or yourself - restores thirst, hunger and health.)"})

@@ -141,3 +141,8 @@ AddEventHandler('esx_basicneeds:onDrink', function(prop_name)
 
 	end
 end)
+
+RegisterNetEvent('esx:showBasicneedsNotification')
+AddEventHandler('esx:showBasicneedsNotification', function(msg,...)
+	ESX.ShowNotification(_U(msg,...))
+end)
