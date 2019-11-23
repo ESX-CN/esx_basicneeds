@@ -1,6 +1,6 @@
 USE `essentialmode`;
 
-INSERT INTO `items` (`name`, `label`, `label_sc`, `label_tc`, `wight`) VALUES
-	('bread', 'Bread', '面包', '麵包', 10),
-	('water', 'Water', '矿泉水', '礦泉水', 5)
+INSERT INTO `items` (`name`, `label`, `label_cn`, `label_zh`, `limit`) VALUES
+	('bread', 'Bread', '汉堡包', '麵包', 10),
+	('water', 'Water', '崂山白花蛇草水', '礦泉水', 5)
 ;
