@@ -1,4 +1,4 @@
-USE `essentialmode`;
+USE `es_extended`;
 
 INSERT INTO `items` (`name`, `label`, `label_sc`, `label_tc`, `weight`) VALUES
 	('bread', 'Bread', '面包', '麵包', 10),
